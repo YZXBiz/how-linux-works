@@ -11,7 +11,7 @@ _Transform raw technical content into beautiful, learnable Docusaurus sites_
 ```bash
 # Template includes:
 # - Docusaurus 3.x with TypeScript
-# - CVS Red theme (custom.css)
+# - Custom red theme (custom.css)
 # - React diagram components
 # - GitHub Actions for deployment
 ```
@@ -281,7 +281,7 @@ colors.pink    // #ec4899
 
 ## Design System
 
-### CVS Red Color Palette
+### Color Palette
 
 | Token | Light | Dark |
 |-------|-------|------|

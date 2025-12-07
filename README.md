@@ -4,7 +4,7 @@ A ready-to-use Docusaurus template for transforming technical content into beaut
 
 ## Features
 
-- **CVS Red Theme** — Professional color scheme with dark mode
+- **Red Theme** — Professional color scheme with dark mode
 - **React Diagram Components** — Box, Arrow, ProcessFlow, TreeDiagram, CardGrid, and more
 - **GitHub Pages Ready** — Auto-deploys via GitHub Actions
 - **Pedagogical Structure** — Built-in teaching methodology guidelines
@@ -54,7 +54,7 @@ Enable GitHub Pages: Settings → Pages → Source: GitHub Actions
 │   ├── docs/              # Transformed content goes here
 │   ├── src/
 │   │   ├── components/diagrams/  # React diagram components
-│   │   └── css/custom.css        # CVS Red theme
+│   │   └── css/custom.css        # Custom theme
 │   ├── static/img/        # Images and favicon
 │   ├── docusaurus.config.ts
 │   └── sidebars.ts
