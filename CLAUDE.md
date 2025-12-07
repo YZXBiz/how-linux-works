@@ -13,6 +13,7 @@ _Transform raw technical content into beautiful, learnable Docusaurus sites_
 # - Docusaurus 3.x with TypeScript
 # - Custom red theme (custom.css)
 # - React diagram components
+# - Interactive code (Python via Pyodide, JS via live-codeblock)
 # - GitHub Actions for deployment
 ```
 
@@ -276,6 +277,51 @@ colors.pink    // #ec4899
   </Row>
 </DiagramContainer>
 ```
+
+---
+
+## Interactive Code
+
+### Python (Works out of box)
+
+```jsx
+import PythonRunner from '@site/src/components/PythonRunner';
+
+<PythonRunner
+  code={`print("Hello from Python!")`}
+  title="Python Example"
+/>
+```
+
+### Multi-Language (C++, Go, Rust, Java, etc.)
+
+```jsx
+import CodeRunner from '@site/src/components/CodeRunner';
+
+<CodeRunner
+  language="cpp"  // or: go, rust, java, csharp, ruby, php, etc.
+  title="C++ Example"
+  code={`#include <iostream>
+int main() {
+    std::cout << "Hello!" << std::endl;
+    return 0;
+}`}
+/>
+```
+
+**Supported languages:** python, cpp, c, java, javascript, typescript, go, rust, ruby, php, csharp, kotlin, swift, bash, sql
+
+**Note:** Non-Python languages require a [Judge0 API key](https://rapidapi.com/judge0-official/api/judge0-ce). Add it in `CodeRunner/index.tsx`.
+
+### JavaScript/React (Live Codeblock)
+
+~~~markdown
+```jsx live
+function Demo() {
+  return <button onClick={() => alert('Clicked!')}>Click me</button>;
+}
+```
+~~~
 
 ---
 

@@ -19,6 +19,8 @@ const config: Config = {
     v4: true,
   },
 
+  themes: ['@docusaurus/theme-live-codeblock'],
+
   // GitHub Pages deployment
   url: `https://${GITHUB_USERNAME}.github.io`,
   baseUrl: `/${REPO_NAME}/`,

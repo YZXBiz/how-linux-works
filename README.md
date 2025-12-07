@@ -6,6 +6,7 @@ A ready-to-use Docusaurus template for transforming technical content into beaut
 
 - **Red Theme** — Professional color scheme with dark mode
 - **React Diagram Components** — Box, Arrow, ProcessFlow, TreeDiagram, CardGrid, and more
+- **Interactive Code** — Run Python (Pyodide) and JavaScript in the browser
 - **GitHub Pages Ready** — Auto-deploys via GitHub Actions
 - **Pedagogical Structure** — Built-in teaching methodology guidelines
 
@@ -74,6 +75,30 @@ import { Row, Box, Arrow, colors } from '@site/src/components/diagrams';
 ```
 
 See `CLAUDE.md` for full component documentation.
+
+## Interactive Code
+
+**Python (works out of box):**
+```jsx
+import PythonRunner from '@site/src/components/PythonRunner';
+<PythonRunner code={`print("Hello!")`} title="Example" />
+```
+
+**C++, Go, Rust, Java, etc:**
+```jsx
+import CodeRunner from '@site/src/components/CodeRunner';
+<CodeRunner language="cpp" code={`#include <iostream>
+int main() { std::cout << "Hello!"; }`} />
+```
+
+**JavaScript (live codeblock):**
+~~~markdown
+```jsx live
+function Demo() { return <button>Click</button>; }
+```
+~~~
+
+Supported: `python`, `cpp`, `c`, `go`, `rust`, `java`, `csharp`, `ruby`, `php`, `kotlin`, `swift`, `bash`, `sql`
 
 ## Content Guidelines
 

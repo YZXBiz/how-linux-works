@@ -9,6 +9,7 @@ import type {SidebarsConfig} from '@docusaurus/plugin-content-docs';
 const sidebars: SidebarsConfig = {
   guideSidebar: [
     'intro',
+    'interactive-demo',
     // Example structure - customize for your project:
     // {
     //   type: 'category',
