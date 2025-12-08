@@ -1,6 +1,23 @@
 # Docs Template
 
-A ready-to-use Docusaurus template for transforming technical content into beautiful, learnable documentation sites.
+> **Transform any technical content into a beautiful, interactive learning experience — in minutes, not days.**
+
+## The Goal
+
+Most technical documentation is **walls of text** that nobody wants to read. This template exists to solve that.
+
+**The problem:** You have raw technical content (notes, guides, tutorials) but turning it into a polished, publishable site takes forever — setting up build tools, designing themes, creating diagrams, adding interactivity.
+
+**The solution:** Drop your markdown into `raw/`, let Claude transform it following `CLAUDE.md` guidelines, and get a production-ready documentation site with:
+
+- Visual diagrams that actually explain concepts
+- Interactive code that readers can run and modify
+- A teaching structure that builds understanding progressively
+- Professional design that works on any device
+
+**The vision:** Technical knowledge should be **accessible and learnable**, not locked in dense PDFs or scattered notes. This template makes publishing high-quality technical content as easy as writing markdown.
+
+---
 
 ## Features
 
