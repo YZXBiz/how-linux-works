@@ -121,12 +121,11 @@ This order ensures site-specific programs in `/usr/local` override standard defa
 <ProcessFlow
   title="Command Search Process"
   steps={[
-    { label: 'User types command', details: 'ls' },
-    { label: 'Check /usr/local/bin', details: 'Not found, continue' },
-    { label: 'Check /usr/bin', details: 'Found /usr/bin/ls' },
-    { label: 'Execute program', details: 'Run /usr/bin/ls' }
+    { title: 'User types command', description: 'ls' },
+    { title: 'Check /usr/local/bin', description: 'Not found, continue' },
+    { title: 'Check /usr/bin', description: 'Found /usr/bin/ls' },
+    { title: 'Execute program', description: 'Run /usr/bin/ls' }
   ]}
-  stepColor={colors.blue}
 />
 
 **Additional common directories**:
@@ -397,13 +396,12 @@ bash           # Non-login shell
 <ProcessFlow
   title="bash Login Shell Startup"
   steps={[
-    { label: 'Shell starts as login', details: 'SSH, console, or --login' },
-    { label: 'Run /etc/profile', details: 'System-wide settings' },
-    { label: 'Search for user file', details: '.bash_profile, .bash_login, .profile' },
-    { label: 'Run first found', details: 'Only one user file executes' },
-    { label: 'Display prompt', details: 'Ready for commands' }
+    { title: 'Shell starts as login', description: 'SSH, console, or --login' },
+    { title: 'Run /etc/profile', description: 'System-wide settings' },
+    { title: 'Search for user file', description: '.bash_profile, .bash_login, .profile' },
+    { title: 'Run first found', description: 'Only one user file executes' },
+    { title: 'Display prompt', description: 'Ready for commands' }
   ]}
-  stepColor={colors.blue}
 />
 
 #### Non-Login Shells
@@ -420,12 +418,11 @@ bash           # Non-login shell
 <ProcessFlow
   title="bash Non-Login Shell Startup"
   steps={[
-    { label: 'Shell starts non-login', details: 'Terminal window, subshell' },
-    { label: 'Run /etc/bash.bashrc', details: 'System-wide settings' },
-    { label: 'Run ~/.bashrc', details: 'User settings' },
-    { label: 'Display prompt', details: 'Ready for commands' }
+    { title: 'Shell starts non-login', description: 'Terminal window, subshell' },
+    { title: 'Run /etc/bash.bashrc', description: 'System-wide settings' },
+    { title: 'Run ~/.bashrc', description: 'User settings' },
+    { title: 'Display prompt', description: 'Ready for commands' }
   ]}
-  stepColor={colors.green}
 />
 
 #### The Problem: Two File Types

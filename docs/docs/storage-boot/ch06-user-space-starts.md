@@ -22,10 +22,10 @@ The moment the kernel executes init (PID 1), everything changes. User space is m
   title="User Space Startup Order"
   steps={[
     { label: "init (systemd)", color: colors.blue },
-    { label: "Essential services (udevd, syslogd)", color: colors.green },
+    { title: "Essential services (udevd, syslogd)", color: colors.green },
     { label: "Network configuration", color: colors.yellow },
-    { label: "Mid/high-level services (cron, printing)", color: colors.orange },
-    { label: "Login prompts, GUIs, applications", color: colors.red }
+    { title: "Mid/high-level services (cron, printing)", color: colors.orange },
+    { title: "Login prompts, GUIs, applications", color: colors.red }
   ]}
 />
 
@@ -850,7 +850,7 @@ shutdown -h 23:00
   steps={[
     { label: "shutdown command creates /etc/nologin", color: colors.blue },
     { label: "init sends TERM signal to all processes", color: colors.green },
-    { label: "init waits, then sends KILL to stragglers", color: colors.yellow },
+    { title: "init waits, then sends KILL to stragglers", color: colors.yellow },
     { label: "Sync filesystems and unmount", color: colors.orange },
     { label: "Remount root read-only", color: colors.red },
     { label: "Kernel reboot/halt system call", color: colors.purple }

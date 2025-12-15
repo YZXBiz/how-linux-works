@@ -25,10 +25,10 @@ This chapter covers the infrastructure that makes Linux usable. We'll explore sy
 <ProcessFlow
   title="System Logging Flow"
   steps={[
-    { name: 'Application', description: 'Generates diagnostic message', color: colors.blue },
-    { name: 'Socket', description: '/dev/log receives message', color: colors.gray },
-    { name: 'journald', description: 'Processes and categorizes', color: colors.green },
-    { name: 'Storage', description: '/var/log/journal stores logs', color: colors.purple }
+    { title: 'Application', description: 'Generates diagnostic message', color: colors.blue },
+    { title: 'Socket', description: '/dev/log receives message', color: colors.gray },
+    { title: 'journald', description: 'Processes and categorizes', color: colors.green },
+    { title: 'Storage', description: '/var/log/journal stores logs', color: colors.purple }
   ]}
 />
 
@@ -303,11 +303,11 @@ journalctl -f -u nginx.service
 <ProcessFlow
   title="Log Rotation Process"
   steps={[
-    { name: 'Delete auth.log.3', description: 'Remove oldest log', color: colors.red },
-    { name: 'Rename auth.log.2 → auth.log.3', description: 'Shift older logs', color: colors.orange },
-    { name: 'Rename auth.log.1 → auth.log.2', description: 'Shift recent logs', color: colors.yellow },
-    { name: 'Rename auth.log → auth.log.1', description: 'Archive current log', color: colors.blue },
-    { name: 'Create new auth.log', description: 'Start fresh log file', color: colors.green }
+    { title: 'Delete auth.log.3', description: 'Remove oldest log', color: colors.red },
+    { title: 'Rename auth.log.2 → auth.log.3', description: 'Shift older logs', color: colors.orange },
+    { title: 'Rename auth.log.1 → auth.log.2', description: 'Shift recent logs', color: colors.yellow },
+    { title: 'Rename auth.log → auth.log.1', description: 'Archive current log', color: colors.blue },
+    { title: 'Create new auth.log', description: 'Start fresh log file', color: colors.green }
   ]}
 />
 
@@ -431,29 +431,29 @@ Facilities are hardwired in the protocol (including obsolete ones like UUCP). On
         name: 'systemd/',
         description: 'systemd configuration',
         children: [
-          { name: 'system/', description: 'System units' },
-          { name: 'user/', description: 'User units' }
+          { title: 'system/', description: 'System units' },
+          { title: 'user/', description: 'User units' }
         ]
       },
       {
         name: 'network/',
         description: 'Network configuration',
         children: [
-          { name: 'interfaces', description: 'Network interfaces' }
+          { title: 'interfaces', description: 'Network interfaces' }
         ]
       },
       {
         name: 'grub.d/',
         description: 'GRUB bootloader config',
         children: [
-          { name: '00_header', description: 'GRUB header' },
-          { name: '10_linux', description: 'Linux kernels' }
+          { title: '00_header', description: 'GRUB header' },
+          { title: '10_linux', description: 'Linux kernels' }
         ]
       },
-      { name: 'passwd', description: 'User database' },
-      { name: 'shadow', description: 'Password hashes' },
-      { name: 'group', description: 'Group database' },
-      { name: 'fstab', description: 'Filesystem table' }
+      { title: 'passwd', description: 'User database' },
+      { title: 'shadow', description: 'Password hashes' },
+      { title: 'group', description: 'Group database' },
+      { title: 'fstab', description: 'Filesystem table' }
     ]
   }}
 />
@@ -688,10 +688,10 @@ Many distributions create a new group for each user with the same name as the us
 <ProcessFlow
   title="Login Process"
   steps={[
-    { name: 'getty', description: 'Displays login prompt on terminal', color: colors.blue },
-    { name: 'User enters name', description: 'getty reads username', color: colors.gray },
-    { name: 'login', description: 'Prompts for password (via PAM)', color: colors.green },
-    { name: 'Shell', description: 'Starts user\'s shell if successful', color: colors.purple }
+    { title: 'getty', description: 'Displays login prompt on terminal', color: colors.blue },
+    { title: 'User enters name', description: 'getty reads username', color: colors.gray },
+    { title: 'login', description: 'Prompts for password (via PAM)', color: colors.green },
+    { title: 'Shell', description: 'Starts user\'s shell if successful', color: colors.purple }
   ]}
 />
 
@@ -720,9 +720,9 @@ Many distributions create a new group for each user with the same name as the us
 <StackDiagram
   title="Time System Architecture"
   layers={[
-    { name: 'User Space', description: 'date command, applications', color: colors.blue },
-    { name: 'Kernel', description: 'System clock (seconds since Jan 1, 1970 UTC)', color: colors.green },
-    { name: 'Hardware', description: 'Real-Time Clock (RTC) with battery backup', color: colors.orange }
+    { title: 'User Space', description: 'date command, applications', color: colors.blue },
+    { title: 'Kernel', description: 'System clock (seconds since Jan 1, 1970 UTC)', color: colors.green },
+    { title: 'Hardware', description: 'Real-Time Clock (RTC) with battery backup', color: colors.orange }
   ]}
 />
 
@@ -1338,10 +1338,10 @@ ps -eo pid,euser,ruser,comm
 <ProcessFlow
   title="PAM Authentication Flow"
   steps={[
-    { name: 'Application', description: 'Requests authentication (e.g., login)', color: colors.blue },
-    { name: 'PAM Library', description: 'Reads /etc/pam.d/login config', color: colors.gray },
-    { name: 'PAM Modules', description: 'Execute authentication steps', color: colors.green },
-    { name: 'Result', description: 'Success or failure returned to app', color: colors.purple }
+    { title: 'Application', description: 'Requests authentication (e.g., login)', color: colors.blue },
+    { title: 'PAM Library', description: 'Reads /etc/pam.d/login config', color: colors.gray },
+    { title: 'PAM Modules', description: 'Execute authentication steps', color: colors.green },
+    { title: 'Result', description: 'Success or failure returned to app', color: colors.purple }
   ]}
 />
 
@@ -1437,10 +1437,10 @@ auth required   pam_deny.so
 <ProcessFlow
   title="PAM Rule Execution"
   steps={[
-    { name: 'pam_rootok.so', description: 'Root? → succeed immediately (sufficient)', color: colors.green },
-    { name: 'pam_shells.so', description: 'Shell valid? No → fail immediately (requisite)', color: colors.red },
-    { name: 'pam_unix.so', description: 'Password correct? → succeed (sufficient)', color: colors.blue },
-    { name: 'pam_deny.so', description: 'Always fails (default deny)', color: colors.gray }
+    { title: 'pam_rootok.so', description: 'Root? → succeed immediately (sufficient)', color: colors.green },
+    { title: 'pam_shells.so', description: 'Shell valid? No → fail immediately (requisite)', color: colors.red },
+    { title: 'pam_unix.so', description: 'Password correct? → succeed (sufficient)', color: colors.blue },
+    { title: 'pam_deny.so', description: 'Always fails (default deny)', color: colors.gray }
   ]}
 />
 

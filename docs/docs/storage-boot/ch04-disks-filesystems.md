@@ -22,8 +22,8 @@ Understanding how Linux manages disks is fundamental to system administration. T
   title="Linux Disk Layers"
   layers={[
     { label: "Applications & Files", color: colors.blue },
-    { label: "Filesystem (ext4, xfs)", color: colors.green },
-    { label: "Partitions (/dev/sda1, /dev/sda2)", color: colors.yellow },
+    { title: "Filesystem (ext4, xfs)", color: colors.green },
+    { title: "Partitions (/dev/sda1, /dev/sda2)", color: colors.yellow },
     { label: "Disk Device (/dev/sda)", color: colors.orange },
     { label: "Physical Hardware", color: colors.red }
   ]}
@@ -217,9 +217,9 @@ cat /sys/block/sdf/sdf2/start
 <StackDiagram
   title="Filesystem Abstraction Layers"
   layers={[
-    { label: "User Applications (ls, cat, vim)", color: colors.blue },
+    { title: "User Applications (ls, cat, vim)", color: colors.blue },
     { label: "VFS (Virtual File System)", color: colors.green },
-    { label: "Filesystem Type (ext4, xfs, btrfs)", color: colors.yellow },
+    { title: "Filesystem Type (ext4, xfs, btrfs)", color: colors.yellow },
     { label: "Block Device Interface", color: colors.orange },
     { label: "Physical Storage", color: colors.red }
   ]}
@@ -523,7 +523,7 @@ fsck /dev/sdb1
 <ProcessFlow
   title="ext4 Filesystem Check"
   steps={[
-    { label: "Pass 1: Check inodes, blocks, sizes", color: colors.blue },
+    { title: "Pass 1: Check inodes, blocks, sizes", color: colors.blue },
     { label: "Pass 2: Check directory structure", color: colors.green },
     { label: "Pass 3: Check directory connectivity", color: colors.yellow },
     { label: "Pass 4: Check reference counts", color: colors.orange },
@@ -668,7 +668,7 @@ Systems without swap invoke the **OOM killer** when memory exhausts, which kills
 <StackDiagram
   title="LVM Architecture"
   layers={[
-    { label: "Filesystems (ext4, xfs)", color: colors.blue },
+    { title: "Filesystems (ext4, xfs)", color: colors.blue },
     { label: "Logical Volumes (LVs)", color: colors.green },
     { label: "Volume Groups (VGs)", color: colors.yellow },
     { label: "Physical Volumes (PVs)", color: colors.orange },

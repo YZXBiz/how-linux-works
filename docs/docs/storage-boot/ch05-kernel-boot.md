@@ -295,8 +295,8 @@ GRUB uses "root" in two completely different ways:
     { label: "Kernel Parameters (root=UUID=...)", color: colors.blue },
     { label: "Kernel Image (linux /boot/vmlinuz)", color: colors.green },
     { label: "Initramfs (initrd /boot/initrd.img)", color: colors.yellow },
-    { label: "GRUB Modules (insmod ext2, insmod gzio)", color: colors.orange },
-    { label: "GRUB Root (set root='hd0,msdos1')", color: colors.red }
+    { title: "GRUB Modules (insmod ext2, insmod gzio)", color: colors.orange },
+    { title: "GRUB Root (set root='hd0,msdos1')", color: colors.red }
   ]}
 />
 

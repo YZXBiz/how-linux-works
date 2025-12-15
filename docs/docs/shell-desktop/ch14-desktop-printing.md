@@ -98,13 +98,13 @@ X solves the framebuffer management problem with a client-server architecture.
 <ConnectionDiagram
   title="X Window System Architecture"
   nodes={[
-    { id: 'x-server', label: 'X Server', color: colors.blue, details: 'Manages display, input, windows' },
-    { id: 'terminal', label: 'Terminal', color: colors.green, details: 'X client' },
-    { id: 'browser', label: 'Browser', color: colors.green, details: 'X client' },
-    { id: 'editor', label: 'Editor', color: colors.green, details: 'X client' },
-    { id: 'wm', label: 'Window Manager', color: colors.purple, details: 'Special X client' },
-    { id: 'framebuffer', label: 'Framebuffer', color: colors.orange, details: 'Display memory' },
-    { id: 'input', label: 'Input Devices', color: colors.gray, details: 'Keyboard, mouse' }
+    { id: 'x-server', label: 'X Server', color: colors.blue, description: 'Manages display, input, windows' },
+    { id: 'terminal', label: 'Terminal', color: colors.green, description: 'X client' },
+    { id: 'browser', label: 'Browser', color: colors.green, description: 'X client' },
+    { id: 'editor', label: 'Editor', color: colors.green, description: 'X client' },
+    { id: 'wm', label: 'Window Manager', color: colors.purple, description: 'Special X client' },
+    { id: 'framebuffer', label: 'Framebuffer', color: colors.orange, description: 'Display memory' },
+    { id: 'input', label: 'Input Devices', color: colors.gray, description: 'Keyboard, mouse' }
   ]}
   connections={[
     { from: 'terminal', to: 'x-server', label: 'X Protocol' },
@@ -146,12 +146,12 @@ Wayland takes a fundamentally different approach with significant decentralizati
 <ConnectionDiagram
   title="Wayland Architecture"
   nodes={[
-    { id: 'compositor', label: 'Compositor', color: colors.blue, details: 'Combines client buffers' },
-    { id: 'term-buf', label: 'Terminal Buffer', color: colors.green, details: 'Client renders here' },
-    { id: 'browser-buf', label: 'Browser Buffer', color: colors.green, details: 'Client renders here' },
-    { id: 'editor-buf', label: 'Editor Buffer', color: colors.green, details: 'Client renders here' },
-    { id: 'framebuffer', label: 'Display Framebuffer', color: colors.orange, details: 'Final output' },
-    { id: 'input', label: 'libinput', color: colors.purple, details: 'Input handling' }
+    { id: 'compositor', label: 'Compositor', color: colors.blue, description: 'Combines client buffers' },
+    { id: 'term-buf', label: 'Terminal Buffer', color: colors.green, description: 'Client renders here' },
+    { id: 'browser-buf', label: 'Browser Buffer', color: colors.green, description: 'Client renders here' },
+    { id: 'editor-buf', label: 'Editor Buffer', color: colors.green, description: 'Client renders here' },
+    { id: 'framebuffer', label: 'Display Framebuffer', color: colors.orange, description: 'Final output' },
+    { id: 'input', label: 'libinput', color: colors.purple, description: 'Input handling' }
   ]}
   connections={[
     { from: 'term-buf', to: 'compositor', label: 'Wayland Protocol' },
@@ -444,13 +444,12 @@ Shows window IDs and client applications.
 <ProcessFlow
   title="X Event Flow"
   steps={[
-    { label: 'User action', details: 'Mouse click, key press' },
-    { label: 'Input device reports', details: 'Hardware event' },
-    { label: 'X server receives', details: 'Processes input' },
-    { label: 'X server sends event', details: 'To relevant client' },
-    { label: 'Client processes', details: 'Updates display' }
+    { title: 'User action', description: 'Mouse click, key press' },
+    { title: 'Input device reports', description: 'Hardware event' },
+    { title: 'X server receives', description: 'Processes input' },
+    { title: 'X server sends event', description: 'To relevant client' },
+    { title: 'Client processes', description: 'Updates display' }
   ]}
-  stepColor={colors.blue}
 />
 
 #### xev: Event Monitor
@@ -702,11 +701,11 @@ At the top of the stack are applications: web browsers, terminals, office suites
 <ConnectionDiagram
   title="D-Bus Architecture"
   nodes={[
-    { id: 'dbus', label: 'dbus-daemon', color: colors.blue, details: 'Central message hub' },
-    { id: 'app1', label: 'File Manager', color: colors.green, details: 'Interested in disk events' },
-    { id: 'app2', label: 'Notification Area', color: colors.green, details: 'Shows all notifications' },
-    { id: 'udisks', label: 'udisks-daemon', color: colors.purple, details: 'Monitors disk events' },
-    { id: 'notify', label: 'Application', color: colors.orange, details: 'Sends notifications' }
+    { id: 'dbus', label: 'dbus-daemon', color: colors.blue, description: 'Central message hub' },
+    { id: 'app1', label: 'File Manager', color: colors.green, description: 'Interested in disk events' },
+    { id: 'app2', label: 'Notification Area', color: colors.green, description: 'Shows all notifications' },
+    { id: 'udisks', label: 'udisks-daemon', color: colors.purple, description: 'Monitors disk events' },
+    { id: 'notify', label: 'Application', color: colors.orange, description: 'Sends notifications' }
   ]}
   connections={[
     { from: 'udisks', to: 'dbus', label: 'Disk event' },
@@ -805,14 +804,13 @@ Printing on Linux is a multi-stage process.
 <ProcessFlow
   title="Linux Printing Pipeline"
   steps={[
-    { label: 'Application converts', details: 'Document → PostScript/PDF' },
-    { label: 'Send to print server', details: 'Via lpr or GUI' },
-    { label: 'Server queues', details: 'Place in print queue' },
-    { label: 'Filter/convert', details: 'PostScript → printer format' },
-    { label: 'Driver adds options', details: 'Paper tray, duplex, etc.' },
-    { label: 'Backend sends', details: 'To physical printer' }
+    { title: 'Application converts', description: 'Document → PostScript/PDF' },
+    { title: 'Send to print server', description: 'Via lpr or GUI' },
+    { title: 'Server queues', description: 'Place in print queue' },
+    { title: 'Filter/convert', description: 'PostScript → printer format' },
+    { title: 'Driver adds options', description: 'Paper tray, duplex, etc.' },
+    { title: 'Backend sends', description: 'To physical printer' }
   ]}
-  stepColor={colors.blue}
 />
 
 ### 10.1. Why PostScript?
@@ -891,13 +889,12 @@ The default web interface isn't very secure. Use your distribution's graphical p
 <ProcessFlow
   title="Print Filter Pipeline"
   steps={[
-    { label: 'PostScript/PDF input', details: 'From application' },
-    { label: 'Raster Image Processor', details: 'Convert to bitmap' },
-    { label: 'Ghostscript (gs)', details: 'Does actual conversion' },
-    { label: 'Printer driver', details: 'Format for specific printer' },
-    { label: 'Output', details: 'Printer-ready data' }
+    { title: 'PostScript/PDF input', description: 'From application' },
+    { title: 'Raster Image Processor', description: 'Convert to bitmap' },
+    { title: 'Ghostscript (gs)', description: 'Does actual conversion' },
+    { title: 'Printer driver', description: 'Format for specific printer' },
+    { title: 'Output', description: 'Printer-ready data' }
   ]}
-  stepColor={colors.purple}
 />
 
 **Key components**:

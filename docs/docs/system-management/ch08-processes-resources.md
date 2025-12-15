@@ -415,9 +415,9 @@ Normally, you don't interact with individual threads. You need intimate knowledg
 <StackDiagram
   title="System Resource Hierarchy"
   layers={[
-    { name: 'CPU', description: 'Processor time for computation', color: colors.blue },
-    { name: 'Memory', description: 'RAM for process data and code', color: colors.green },
-    { name: 'I/O', description: 'Disk, network, and device access', color: colors.orange }
+    { title: 'CPU', description: 'Processor time for computation', color: colors.blue },
+    { title: 'Memory', description: 'RAM for process data and code', color: colors.green },
+    { title: 'I/O', description: 'Disk, network, and device access', color: colors.orange }
   ]}
 />
 
@@ -627,11 +627,11 @@ Not every performance problem is due to insufficient memory. Investigate thoroug
 <ProcessFlow
   title="On-Demand Paging"
   steps={[
-    { name: 'Process Starts', description: 'Kernel loads initial code pages', color: colors.blue },
-    { name: 'Execution Begins', description: 'Process runs with minimal memory', color: colors.green },
-    { name: 'Page Fault', description: 'Process accesses unmapped memory', color: colors.orange },
-    { name: 'Kernel Intervenes', description: 'Loads needed page into memory', color: colors.purple },
-    { name: 'Execution Resumes', description: 'Process continues', color: colors.green }
+    { title: 'Process Starts', description: 'Kernel loads initial code pages', color: colors.blue },
+    { title: 'Execution Begins', description: 'Process runs with minimal memory', color: colors.green },
+    { title: 'Page Fault', description: 'Process accesses unmapped memory', color: colors.orange },
+    { title: 'Kernel Intervenes', description: 'Loads needed page into memory', color: colors.purple },
+    { title: 'Execution Resumes', description: 'Process continues', color: colors.green }
   ]}
 />
 
@@ -1046,10 +1046,10 @@ See `pidstat(1)` manual for complete options.
 <ProcessFlow
   title="cgroup Resource Control"
   steps={[
-    { name: 'Create cgroup', description: 'Define resource group', color: colors.blue },
-    { name: 'Add processes', description: 'Assign processes to group', color: colors.green },
-    { name: 'Enable controllers', description: 'Activate resource limits', color: colors.orange },
-    { name: 'Set limits', description: 'Configure memory, CPU, I/O limits', color: colors.purple }
+    { title: 'Create cgroup', description: 'Define resource group', color: colors.blue },
+    { title: 'Add processes', description: 'Assign processes to group', color: colors.green },
+    { title: 'Enable controllers', description: 'Activate resource limits', color: colors.orange },
+    { title: 'Set limits', description: 'Configure memory, CPU, I/O limits', color: colors.purple }
   ]}
 />
 

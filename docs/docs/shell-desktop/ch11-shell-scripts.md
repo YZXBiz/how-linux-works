@@ -31,13 +31,12 @@ The `#!` part is called a **shebang**. Make sure there's no whitespace at the be
 <ProcessFlow
   title="Shell Script Execution Flow"
   steps={[
-    { label: 'User runs script', details: './myscript' },
-    { label: 'Kernel reads shebang', details: '#!/bin/sh' },
-    { label: 'Kernel starts /bin/sh', details: 'Launches shell interpreter' },
-    { label: 'Shell reads script', details: 'Executes commands sequentially' },
-    { label: 'Script completes', details: 'Returns exit code' }
+    { title: 'User runs script', description: './myscript' },
+    { title: 'Kernel reads shebang', description: '#!/bin/sh' },
+    { title: 'Kernel starts /bin/sh', description: 'Launches shell interpreter' },
+    { title: 'Shell reads script', description: 'Executes commands sequentially' },
+    { title: 'Script completes', description: 'Returns exit code' }
   ]}
-  stepColor={colors.blue}
 />
 
 **What it is**: The shebang is a two-character sequence (`#!`) followed by the path to an interpreter.
@@ -480,12 +479,11 @@ fi
 <ProcessFlow
   title="Conditional Execution Flow"
   steps={[
-    { label: 'Run test command', details: '[ $1 = hi ]' },
-    { label: 'Check exit code', details: 'Success (0) or failure (non-zero)?' },
-    { label: 'Execute branch', details: 'then block or else block' },
-    { label: 'Continue', details: 'Resume after fi' }
+    { title: 'Run test command', description: '[ $1 = hi ]' },
+    { title: 'Check exit code', description: 'Success (0) or failure (non-zero)?' },
+    { title: 'Execute branch', description: 'then block or else block' },
+    { title: 'Continue', description: 'Resume after fi' }
   ]}
-  stepColor={colors.green}
 />
 
 ### 5.2. The Test Command: `[`
@@ -1231,12 +1229,11 @@ If you find yourself writing complex interactive scripts with many `read` comman
 <ProcessFlow
   title="Choosing the Right Tool"
   steps={[
-    { label: 'Define task', details: 'What are you trying to accomplish?' },
-    { label: 'Assess complexity', details: 'File ops? Or complex logic?' },
-    { label: 'Choose tool', details: 'Shell, Python, Perl, C, etc.' },
-    { label: 'Start simple', details: 'Begin with shell, migrate if needed' }
+    { title: 'Define task', description: 'What are you trying to accomplish?' },
+    { title: 'Assess complexity', description: 'File ops? Or complex logic?' },
+    { title: 'Choose tool', description: 'Shell, Python, Perl, C, etc.' },
+    { title: 'Start simple', description: 'Begin with shell, migrate if needed' }
   ]}
-  stepColor={colors.blue}
 />
 
 ### 14.3. Recommended Alternatives
