@@ -95,21 +95,21 @@ man init
         label: "/usr/lib/systemd exists?",
         color: colors.green,
         children: [
-          { title: "Yes → systemd", color: colors.purple }
+          { label: "Yes → systemd", color: colors.purple }
         ]
       },
       {
         label: "/etc/init/*.conf exists?",
         color: colors.orange,
         children: [
-          { title: "Yes → Upstart (legacy)", color: colors.slate }
+          { label: "Yes → Upstart (legacy)", color: colors.slate }
         ]
       },
       {
         label: "/etc/inittab exists?",
         color: colors.cyan,
         children: [
-          { title: "Yes → System V init (legacy)", color: colors.slate }
+          { label: "Yes → System V init (legacy)", color: colors.slate }
         ]
       }
     ]
@@ -207,9 +207,9 @@ systemctl list-dependencies default.target
 <StackDiagram
   title="systemd Configuration Priority"
   layers={[
-    { title: "/etc/systemd/system/ (Your overrides)", color: colors.blue },
-    { title: "/run/systemd/system/ (Runtime)", color: colors.green },
-    { title: "/usr/lib/systemd/system/ (Distribution)", color: colors.yellow }
+    { label: "/etc/systemd/system/ (Your overrides)", color: colors.blue },
+    { label: "/run/systemd/system/ (Runtime)", color: colors.green },
+    { label: "/usr/lib/systemd/system/ (Distribution)", color: colors.yellow }
   ]}
 />
 
@@ -915,13 +915,13 @@ reboot -f
 <StackDiagram
   title="Boot Sequence with Initramfs"
   layers={[
-    { title: "Real init (systemd on actual root)", color: colors.blue },
-    { title: "Real root filesystem mounted", color: colors.green },
-    { title: "Storage drivers loaded", color: colors.yellow },
-    { title: "initramfs init executes", color: colors.orange },
-    { title: "initramfs mounted as /", color: colors.red },
-    { title: "Kernel + initramfs loaded", color: colors.purple },
-    { title: "Boot loader (GRUB)", color: colors.pink }
+    { label: "Real init (systemd on actual root)", color: colors.blue },
+    { label: "Real root filesystem mounted", color: colors.green },
+    { label: "Storage drivers loaded", color: colors.yellow },
+    { label: "initramfs init executes", color: colors.orange },
+    { label: "initramfs mounted as /", color: colors.red },
+    { label: "Kernel + initramfs loaded", color: colors.purple },
+    { label: "Boot loader (GRUB)", color: colors.pink }
   ]}
 />
 

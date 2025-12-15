@@ -70,13 +70,13 @@ systemd[1]: systemd 237 running in system mode
 <StackDiagram
   title="Kernel Boot Stages"
   layers={[
-    { title: "User Space Start (init)", color: colors.blue },
-    { title: "Root Filesystem Mount", color: colors.green },
-    { title: "Auxiliary Subsystems (networking)", color: colors.yellow },
-    { title: "Device Discovery", color: colors.orange },
-    { title: "Device Bus Discovery", color: colors.red },
-    { title: "Memory Inspection", color: colors.purple },
-    { title: "CPU Inspection", color: colors.pink }
+    { label: "User Space Start (init)", color: colors.blue },
+    { label: "Root Filesystem Mount", color: colors.green },
+    { label: "Auxiliary Subsystems (networking)", color: colors.yellow },
+    { label: "Device Discovery", color: colors.orange },
+    { label: "Device Bus Discovery", color: colors.red },
+    { label: "Memory Inspection", color: colors.purple },
+    { label: "CPU Inspection", color: colors.pink }
   ]}
 />
 
@@ -292,11 +292,11 @@ GRUB uses "root" in two completely different ways:
 <StackDiagram
   title="GRUB Configuration Layers"
   layers={[
-    { title: "Kernel Parameters (root=UUID=...)", color: colors.blue },
-    { title: "Kernel Image (linux /boot/vmlinuz)", color: colors.green },
-    { title: "Initramfs (initrd /boot/initrd.img)", color: colors.yellow },
-    { title: "GRUB Modules (insmod ext2, insmod gzio)", color: colors.orange },
-    { title: "GRUB Root (set root='hd0,msdos1')", color: colors.red }
+    { label: "Kernel Parameters (root=UUID=...)", color: colors.blue },
+    { label: "Kernel Image (linux /boot/vmlinuz)", color: colors.green },
+    { label: "Initramfs (initrd /boot/initrd.img)", color: colors.yellow },
+    { label: "GRUB Modules (insmod ext2, insmod gzio)", color: colors.orange },
+    { label: "GRUB Root (set root='hd0,msdos1')", color: colors.red }
   ]}
 />
 
@@ -450,11 +450,11 @@ grub-install --efi-directory=/boot/efi --bootloader-id=ubuntu
 <StackDiagram
   title="GRUB Installation Locations"
   layers={[
-    { title: "UEFI: ESP at /boot/efi/EFI/", color: colors.blue },
-    { title: "or MBR: First 440 bytes of disk", color: colors.green },
-    { title: "GRUB Core: After MBR or in ESP", color: colors.yellow },
-    { title: "GRUB Modules: /boot/grub/", color: colors.orange },
-    { title: "Physical Disk", color: colors.red }
+    { label: "UEFI: ESP at /boot/efi/EFI/", color: colors.blue },
+    { label: "or MBR: First 440 bytes of disk", color: colors.green },
+    { label: "GRUB Core: After MBR or in ESP", color: colors.yellow },
+    { label: "GRUB Modules: /boot/grub/", color: colors.orange },
+    { label: "Physical Disk", color: colors.red }
   ]}
 />
 
@@ -521,11 +521,11 @@ The `+1` means "load whatever boot code is at the first sector of the partition.
 <StackDiagram
   title="MBR Boot Process"
   layers={[
-    { title: "BIOS loads first 440 bytes (MBR boot code)", color: colors.blue },
-    { title: "MBR code loads GRUB core (between MBR and first partition)", color: colors.green },
-    { title: "GRUB core loads modules from /boot/grub", color: colors.yellow },
-    { title: "GRUB loads kernel and initramfs", color: colors.orange },
-    { title: "GRUB executes kernel", color: colors.red }
+    { label: "BIOS loads first 440 bytes (MBR boot code)", color: colors.blue },
+    { label: "MBR code loads GRUB core (between MBR and first partition)", color: colors.green },
+    { label: "GRUB core loads modules from /boot/grub", color: colors.yellow },
+    { label: "GRUB loads kernel and initramfs", color: colors.orange },
+    { label: "GRUB executes kernel", color: colors.red }
   ]}
 />
 
