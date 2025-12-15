@@ -163,24 +163,20 @@ man init
 
 **Why it matters:** Dependency graphs enable parallel startup (reducing boot time) while ensuring services start in valid orders (network before NFS mounts).
 
-<ConnectionDiagram
-  title="Simplified Unit Dependencies"
-  nodes={[
-    { id: 'default', label: 'default.target\n(System Goal)', color: colors.blue },
-    { id: 'graphical', label: 'graphical.target\n(GUI)', color: colors.green },
-    { id: 'multi', label: 'multi-user.target\n(Multi-user)', color: colors.yellow },
-    { id: 'basic', label: 'basic.target\n(Basic System)', color: colors.orange },
-    { id: 'network', label: 'network.target\n(Networking)', color: colors.purple },
-    { id: 'sshd', label: 'sshd.service\n(SSH Server)', color: colors.red }
-  ]}
-  connections={[
-    { from: 'default', to: 'graphical', label: 'Wants' },
-    { from: 'graphical', to: 'multi', label: 'Requires' },
-    { from: 'multi', to: 'basic', label: 'Requires' },
-    { from: 'multi', to: 'network', label: 'Wants' },
-    { from: 'sshd', to: 'network', label: 'After' }
+<ProcessFlow
+  steps={[
+    { title: 'default.target', description: 'System goal', color: colors.blue },
+    { title: 'graphical.target', description: 'Desktop/GUI', color: colors.green },
+    { title: 'multi-user.target', description: 'Multi-user mode', color: colors.yellow },
+    { title: 'basic.target', description: 'Basic services', color: colors.orange }
   ]}
 />
+
+**Key targets:**
+- **default.target** - Symlink to graphical.target or multi-user.target
+- **graphical.target** - Full desktop with display manager
+- **multi-user.target** - Text-mode, network-enabled
+- **basic.target** - Minimal services ready
 
 **Viewing dependencies:**
 
@@ -596,20 +592,12 @@ systemctl status sshd.service
 
 **Socket activation example:**
 
-<ConnectionDiagram
-  title="Socket Activation Flow"
-  nodes={[
-    { id: 'client', label: 'Client\nConnects', color: colors.blue },
-    { id: 'socket', label: 'echo.socket\n(Port 22222)', color: colors.green },
-    { id: 'systemd', label: 'systemd\nBuffers Data', color: colors.yellow },
-    { id: 'service', label: 'echo@.service\nStarts', color: colors.orange },
-    { id: 'takeover', label: 'Service Takes\nSocket', color: colors.red }
-  ]}
-  connections={[
-    { from: 'client', to: 'socket', label: 'Connection' },
-    { from: 'socket', to: 'systemd', label: 'Activates' },
-    { from: 'systemd', to: 'service', label: 'Starts' },
-    { from: 'service', to: 'takeover', label: 'Handoff' }
+<ProcessFlow
+  steps={[
+    { title: 'Client Connects', description: 'To port 22222', color: colors.blue },
+    { title: 'Socket Activates', description: 'systemd notices', color: colors.green },
+    { title: 'Service Starts', description: 'echo@.service', color: colors.orange },
+    { title: 'Handoff', description: 'Socket passed to service', color: colors.red }
   ]}
 />
 

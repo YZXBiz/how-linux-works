@@ -1541,24 +1541,14 @@ Each device has both a block device file and a generic device file.
 
 **In plain English:** An optical drive can be accessed two ways - through the regular driver for reading and through the generic device for writing. Like having a front door and a service entrance to the same building.
 
-<ConnectionDiagram
-  title="Dual Access to Optical Drive"
-  nodes={[
-    { id: 'procA', label: 'Process A\n(Reading)', color: colors.blue },
-    { id: 'procB', label: 'Process B\n(Writing)', color: colors.green },
-    { id: 'sr', label: 'sr Driver\n(Block Device)', color: colors.orange },
-    { id: 'sg', label: 'sg Driver\n(Generic)', color: colors.purple },
-    { id: 'scsi', label: 'SCSI Middle Layer', color: colors.blue },
-    { id: 'hw', label: 'Hardware Driver', color: colors.green },
-    { id: 'device', label: 'Optical Drive', color: colors.orange }
-  ]}
-  connections={[
-    { from: 'procA', to: 'sr', label: 'read' },
-    { from: 'procB', to: 'sg', label: 'SCSI cmds' },
-    { from: 'sr', to: 'scsi', label: 'SCSI' },
-    { from: 'sg', to: 'scsi', label: 'SCSI' },
-    { from: 'scsi', to: 'hw', label: 'SCSI' },
-    { from: 'hw', to: 'device', label: 'Hardware' }
+<StackDiagram
+  title="Dual Access Paths to Optical Drive"
+  layers={[
+    { label: 'User Space', color: colors.blue, items: ['Process A (reading via sr)', 'Process B (writing via sg)'] },
+    { label: 'Driver Layer', color: colors.green, items: ['sr driver (block)', 'sg driver (generic)'] },
+    { label: 'SCSI Middle Layer', color: colors.orange, items: ['Common abstraction for all SCSI'] },
+    { label: 'Hardware Driver', color: colors.purple, items: ['Low-level hardware access'] },
+    { label: 'Optical Drive', color: colors.slate, items: ['Physical device'] }
   ]}
 />
 

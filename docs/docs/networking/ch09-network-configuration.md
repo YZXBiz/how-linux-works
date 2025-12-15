@@ -46,18 +46,19 @@ Each layer is independent. You can change the physical layer (from wired to wire
 
 <ConnectionDiagram
   title="Typical Home/Office Network"
+  layout="hub"
   nodes={[
-    { id: 'internet', label: 'Internet', type: 'cloud' },
-    { id: 'router', label: 'Router\n10.23.2.1', type: 'router' },
-    { id: 'hostA', label: 'Host A\n10.23.2.4', type: 'computer' },
-    { id: 'hostB', label: 'Host B\n10.23.2.5', type: 'computer' },
-    { id: 'hostC', label: 'Host C\n10.23.2.6', type: 'computer' }
+    { id: 'router', label: 'Router (10.23.2.1)', color: colors.blue, icon: '🌐' },
+    { id: 'internet', label: 'Internet', color: colors.purple },
+    { id: 'hostA', label: 'Host A (10.23.2.4)', color: colors.green },
+    { id: 'hostB', label: 'Host B (10.23.2.5)', color: colors.green },
+    { id: 'hostC', label: 'Host C (10.23.2.6)', color: colors.green }
   ]}
   connections={[
-    { from: 'router', to: 'internet', label: 'WAN', bidirectional: true },
-    { from: 'router', to: 'hostA', label: 'LAN', bidirectional: true },
-    { from: 'router', to: 'hostB', label: 'LAN', bidirectional: true },
-    { from: 'router', to: 'hostC', label: 'LAN', bidirectional: true }
+    { from: 'router', to: 'internet', label: 'WAN' },
+    { from: 'router', to: 'hostA', label: 'LAN' },
+    { from: 'router', to: 'hostB', label: 'LAN' },
+    { from: 'router', to: 'hostC', label: 'LAN' }
   ]}
 />
 
@@ -172,18 +173,11 @@ Let's decode this:
 
 **Second line (local subnet)**: Send anything in 10.23.2.0/24 directly through the network interface.
 
-<ConnectionDiagram
-  title="How Routing Works"
-  nodes={[
-    { id: 'host', label: 'Your Host\n10.23.2.4', type: 'computer' },
-    { id: 'local', label: 'Local Host\n10.23.2.5', type: 'computer' },
-    { id: 'router', label: 'Router\n10.23.2.1', type: 'router' },
-    { id: 'internet', label: 'Internet Host\n93.184.216.34', type: 'cloud' }
-  ]}
-  connections={[
-    { from: 'host', to: 'local', label: 'Direct (same subnet)', bidirectional: true },
-    { from: 'host', to: 'router', label: 'Via gateway', bidirectional: false },
-    { from: 'router', to: 'internet', label: 'To internet', bidirectional: true }
+<CardGrid
+  columns={2}
+  cards={[
+    { title: 'Direct Route', description: '10.23.2.4 → 10.23.2.5', color: colors.green, items: ['Same subnet', 'No router needed'] },
+    { title: 'Gateway Route', description: '10.23.2.4 → Router → Internet', color: colors.blue, items: ['Different subnet', 'Via 10.23.2.1'] }
   ]}
 />
 
