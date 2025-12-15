@@ -21,9 +21,9 @@ The moment the kernel executes init (PID 1), everything changes. User space is m
 <ProcessFlow
   title="User Space Startup Order"
   steps={[
-    { label: "init (systemd)", color: colors.blue },
+    { title: "init (systemd)", color: colors.blue },
     { title: "Essential services (udevd, syslogd)", color: colors.green },
-    { label: "Network configuration", color: colors.yellow },
+    { title: "Network configuration", color: colors.yellow },
     { title: "Mid/high-level services (cron, printing)", color: colors.orange },
     { title: "Login prompts, GUIs, applications", color: colors.red }
   ]}
@@ -95,21 +95,21 @@ man init
         label: "/usr/lib/systemd exists?",
         color: colors.green,
         children: [
-          { label: "Yes → systemd", color: colors.purple }
+          { title: "Yes → systemd", color: colors.purple }
         ]
       },
       {
         label: "/etc/init/*.conf exists?",
         color: colors.orange,
         children: [
-          { label: "Yes → Upstart (legacy)", color: colors.slate }
+          { title: "Yes → Upstart (legacy)", color: colors.slate }
         ]
       },
       {
         label: "/etc/inittab exists?",
         color: colors.cyan,
         children: [
-          { label: "Yes → System V init (legacy)", color: colors.slate }
+          { title: "Yes → System V init (legacy)", color: colors.slate }
         ]
       }
     ]
@@ -207,9 +207,9 @@ systemctl list-dependencies default.target
 <StackDiagram
   title="systemd Configuration Priority"
   layers={[
-    { label: "/etc/systemd/system/ (Your overrides)", color: colors.blue },
-    { label: "/run/systemd/system/ (Runtime)", color: colors.green },
-    { label: "/usr/lib/systemd/system/ (Distribution)", color: colors.yellow }
+    { title: "/etc/systemd/system/ (Your overrides)", color: colors.blue },
+    { title: "/run/systemd/system/ (Runtime)", color: colors.green },
+    { title: "/usr/lib/systemd/system/ (Distribution)", color: colors.yellow }
   ]}
 />
 
@@ -335,10 +335,10 @@ Apr 16 08:15:41 hostname systemd[1]: Started OpenBSD Secure Shell server.
 <ProcessFlow
   title="Service Lifecycle Commands"
   steps={[
-    { label: "systemctl start → Running", color: colors.green },
-    { label: "systemctl stop → Stopped", color: colors.red },
-    { label: "systemctl restart → Stop then Start", color: colors.yellow },
-    { label: "systemctl reload → Reload config only", color: colors.blue }
+    { title: "systemctl start → Running", color: colors.green },
+    { title: "systemctl stop → Stopped", color: colors.red },
+    { title: "systemctl restart → Stop then Start", color: colors.yellow },
+    { title: "systemctl reload → Reload config only", color: colors.blue }
   ]}
 />
 
@@ -517,11 +517,11 @@ systemctl enable myservice.service
 <ProcessFlow
   title="systemctl enable Operation"
   steps={[
-    { label: "Read [Install] section", color: colors.blue },
-    { label: "Parse WantedBy=multi-user.target", color: colors.green },
-    { label: "Create .wants directory if needed", color: colors.yellow },
-    { label: "Create symlink in multi-user.target.wants/", color: colors.orange },
-    { label: "Now starts when multi-user.target starts", color: colors.red }
+    { title: "Read [Install] section", color: colors.blue },
+    { title: "Parse WantedBy=multi-user.target", color: colors.green },
+    { title: "Create .wants directory if needed", color: colors.yellow },
+    { title: "Create symlink in multi-user.target.wants/", color: colors.orange },
+    { title: "Now starts when multi-user.target starts", color: colors.red }
   ]}
 />
 
@@ -630,11 +630,11 @@ telnet localhost 22222
 <ProcessFlow
   title="Parallel Boot with Socket Units"
   steps={[
-    { label: "systemd starts journald.socket immediately", color: colors.blue },
-    { label: "Dependent services start in parallel", color: colors.green },
-    { label: "journald.service starts when ready", color: colors.yellow },
-    { label: "journald takes over socket", color: colors.orange },
-    { label: "All services already running", color: colors.red }
+    { title: "systemd starts journald.socket immediately", color: colors.blue },
+    { title: "Dependent services start in parallel", color: colors.green },
+    { title: "journald.service starts when ready", color: colors.yellow },
+    { title: "journald takes over socket", color: colors.orange },
+    { title: "All services already running", color: colors.red }
   ]}
 />
 
@@ -758,11 +758,11 @@ id:runlevels:action:command
 <ProcessFlow
   title="System V Startup Sequence"
   steps={[
-    { label: "S10sysklogd start (system logger)", color: colors.blue },
-    { label: "S20acct start (process accounting)", color: colors.green },
-    { label: "... (more services sequentially)", color: colors.yellow },
-    { label: "S99sshd start (SSH server)", color: colors.orange },
-    { label: "Boot complete", color: colors.red }
+    { title: "S10sysklogd start (system logger)", color: colors.blue },
+    { title: "S20acct start (process accounting)", color: colors.green },
+    { title: "... (more services sequentially)", color: colors.yellow },
+    { title: "S99sshd start (SSH server)", color: colors.orange },
+    { title: "Boot complete", color: colors.red }
   ]}
 />
 
@@ -813,11 +813,11 @@ ln -s /etc/init.d/myservice /etc/rc5.d/S95myservice
 <ProcessFlow
   title="System V Compatibility in systemd"
   steps={[
-    { label: "systemd activates runlevel5.target", color: colors.blue },
-    { label: "Scans /etc/rc5.d/ for links", color: colors.green },
-    { label: "Associates /etc/init.d/foo with foo.service", color: colors.yellow },
-    { label: "Runs script with start/stop argument", color: colors.orange },
-    { label: "Tracks processes as systemd service", color: colors.red }
+    { title: "systemd activates runlevel5.target", color: colors.blue },
+    { title: "Scans /etc/rc5.d/ for links", color: colors.green },
+    { title: "Associates /etc/init.d/foo with foo.service", color: colors.yellow },
+    { title: "Runs script with start/stop argument", color: colors.orange },
+    { title: "Tracks processes as systemd service", color: colors.red }
   ]}
 />
 
@@ -848,12 +848,12 @@ shutdown -h 23:00
 <ProcessFlow
   title="Shutdown Process"
   steps={[
-    { label: "shutdown command creates /etc/nologin", color: colors.blue },
-    { label: "init sends TERM signal to all processes", color: colors.green },
+    { title: "shutdown command creates /etc/nologin", color: colors.blue },
+    { title: "init sends TERM signal to all processes", color: colors.green },
     { title: "init waits, then sends KILL to stragglers", color: colors.yellow },
-    { label: "Sync filesystems and unmount", color: colors.orange },
-    { label: "Remount root read-only", color: colors.red },
-    { label: "Kernel reboot/halt system call", color: colors.purple }
+    { title: "Sync filesystems and unmount", color: colors.orange },
+    { title: "Remount root read-only", color: colors.red },
+    { title: "Kernel reboot/halt system call", color: colors.purple }
   ]}
 />
 
@@ -915,13 +915,13 @@ reboot -f
 <StackDiagram
   title="Boot Sequence with Initramfs"
   layers={[
-    { label: "Real init (systemd on actual root)", color: colors.blue },
-    { label: "Real root filesystem mounted", color: colors.green },
-    { label: "Storage drivers loaded", color: colors.yellow },
-    { label: "initramfs init executes", color: colors.orange },
-    { label: "initramfs mounted as /", color: colors.red },
-    { label: "Kernel + initramfs loaded", color: colors.purple },
-    { label: "Boot loader (GRUB)", color: colors.pink }
+    { title: "Real init (systemd on actual root)", color: colors.blue },
+    { title: "Real root filesystem mounted", color: colors.green },
+    { title: "Storage drivers loaded", color: colors.yellow },
+    { title: "initramfs init executes", color: colors.orange },
+    { title: "initramfs mounted as /", color: colors.red },
+    { title: "Kernel + initramfs loaded", color: colors.purple },
+    { title: "Boot loader (GRUB)", color: colors.pink }
   ]}
 />
 
@@ -1050,14 +1050,14 @@ Most modern distributions' installation media double as live images. Keep a USB 
 <ProcessFlow
   title="Complete Boot Chain"
   steps={[
-    { label: "Firmware (BIOS/UEFI)", color: colors.blue },
-    { label: "Boot Loader (GRUB)", color: colors.green },
-    { label: "Kernel Initialization", color: colors.yellow },
-    { label: "initramfs (driver loading)", color: colors.orange },
-    { label: "Root Filesystem Mount", color: colors.red },
-    { label: "init (systemd) Startup", color: colors.purple },
-    { label: "Service Activation", color: colors.pink },
-    { label: "Running System", color: colors.blue }
+    { title: "Firmware (BIOS/UEFI)", color: colors.blue },
+    { title: "Boot Loader (GRUB)", color: colors.green },
+    { title: "Kernel Initialization", color: colors.yellow },
+    { title: "initramfs (driver loading)", color: colors.orange },
+    { title: "Root Filesystem Mount", color: colors.red },
+    { title: "init (systemd) Startup", color: colors.purple },
+    { title: "Service Activation", color: colors.pink },
+    { title: "Running System", color: colors.blue }
   ]}
 />
 

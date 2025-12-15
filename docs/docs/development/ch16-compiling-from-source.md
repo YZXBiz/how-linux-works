@@ -562,10 +562,10 @@ configure:5101: result: no
 <StackDiagram
   title="Environment Variables in Build Process"
   layers={[
-    { label: 'Shell Environment', color: colors.blue, items: ['CPPFLAGS, CFLAGS, LDFLAGS'] },
-    { label: 'Configure Script', color: colors.green, items: ['Reads environment variables', 'Tests system'] },
-    { label: 'Generated Makefile', color: colors.purple, items: ['Contains make variables'] },
-    { label: 'Compilation', color: colors.orange, items: ['Compiler uses flags from Makefile'] }
+    { title: 'Shell Environment', color: colors.blue, items: ['CPPFLAGS, CFLAGS, LDFLAGS'] },
+    { title: 'Configure Script', color: colors.green, items: ['Reads environment variables', 'Tests system'] },
+    { title: 'Generated Makefile', color: colors.purple, items: ['Contains make variables'] },
+    { title: 'Compilation', color: colors.orange, items: ['Compiler uses flags from Makefile'] }
   ]}
 />
 

@@ -21,11 +21,11 @@ Understanding how Linux manages disks is fundamental to system administration. T
 <StackDiagram
   title="Linux Disk Layers"
   layers={[
-    { label: "Applications & Files", color: colors.blue },
+    { title: "Applications & Files", color: colors.blue },
     { title: "Filesystem (ext4, xfs)", color: colors.green },
     { title: "Partitions (/dev/sda1, /dev/sda2)", color: colors.yellow },
-    { label: "Disk Device (/dev/sda)", color: colors.orange },
-    { label: "Physical Hardware", color: colors.red }
+    { title: "Disk Device (/dev/sda)", color: colors.orange },
+    { title: "Physical Hardware", color: colors.red }
   ]}
 />
 
@@ -73,13 +73,13 @@ Number  Start    End      Size    File system  Name       Flags
       {
         label: "Primary Partition 1",
         color: colors.green,
-        children: [{ label: "ext4 filesystem", color: colors.purple }]
+        children: [{ title: "ext4 filesystem", color: colors.purple }]
       },
       {
         label: "Extended Partition 2",
         color: colors.orange,
         children: [
-          { label: "Logical Partition 5", color: colors.cyan, children: [{ label: "swap space", color: colors.purple }] }
+          { title: "Logical Partition 5", color: colors.cyan, children: [{ title: "swap space", color: colors.purple }] }
         ]
       }
     ]
@@ -218,10 +218,10 @@ cat /sys/block/sdf/sdf2/start
   title="Filesystem Abstraction Layers"
   layers={[
     { title: "User Applications (ls, cat, vim)", color: colors.blue },
-    { label: "VFS (Virtual File System)", color: colors.green },
+    { title: "VFS (Virtual File System)", color: colors.green },
     { title: "Filesystem Type (ext4, xfs, btrfs)", color: colors.yellow },
-    { label: "Block Device Interface", color: colors.orange },
-    { label: "Physical Storage", color: colors.red }
+    { title: "Block Device Interface", color: colors.orange },
+    { title: "Physical Storage", color: colors.red }
   ]}
 />
 
@@ -308,10 +308,10 @@ umount /home/extra
 <ProcessFlow
   title="Mount Operation Steps"
   steps={[
-    { label: "Kernel reads filesystem metadata", color: colors.blue },
-    { label: "Verifies filesystem type and integrity", color: colors.green },
-    { label: "Creates mount point association", color: colors.yellow },
-    { label: "Makes files accessible at mount path", color: colors.orange }
+    { title: "Kernel reads filesystem metadata", color: colors.blue },
+    { title: "Verifies filesystem type and integrity", color: colors.green },
+    { title: "Creates mount point association", color: colors.yellow },
+    { title: "Makes files accessible at mount path", color: colors.orange }
   ]}
 />
 
@@ -524,10 +524,10 @@ fsck /dev/sdb1
   title="ext4 Filesystem Check"
   steps={[
     { title: "Pass 1: Check inodes, blocks, sizes", color: colors.blue },
-    { label: "Pass 2: Check directory structure", color: colors.green },
-    { label: "Pass 3: Check directory connectivity", color: colors.yellow },
-    { label: "Pass 4: Check reference counts", color: colors.orange },
-    { label: "Pass 5: Check group summary info", color: colors.red }
+    { title: "Pass 2: Check directory structure", color: colors.green },
+    { title: "Pass 3: Check directory connectivity", color: colors.yellow },
+    { title: "Pass 4: Check reference counts", color: colors.orange },
+    { title: "Pass 5: Check group summary info", color: colors.red }
   ]}
 />
 
@@ -669,10 +669,10 @@ Systems without swap invoke the **OOM killer** when memory exhausts, which kills
   title="LVM Architecture"
   layers={[
     { title: "Filesystems (ext4, xfs)", color: colors.blue },
-    { label: "Logical Volumes (LVs)", color: colors.green },
-    { label: "Volume Groups (VGs)", color: colors.yellow },
-    { label: "Physical Volumes (PVs)", color: colors.orange },
-    { label: "Physical Disks/Partitions", color: colors.red }
+    { title: "Logical Volumes (LVs)", color: colors.green },
+    { title: "Volume Groups (VGs)", color: colors.yellow },
+    { title: "Physical Volumes (PVs)", color: colors.orange },
+    { title: "Physical Disks/Partitions", color: colors.red }
   ]}
 />
 
@@ -737,12 +737,12 @@ lvdisplay /dev/ubuntu-vg/root
       {
         label: "Logical Volume: mylv1 (10GB)",
         color: colors.green,
-        children: [{ label: "ext4 filesystem", color: colors.purple }]
+        children: [{ title: "ext4 filesystem", color: colors.purple }]
       },
       {
         label: "Logical Volume: mylv2 (10GB)",
         color: colors.green,
-        children: [{ label: "ext4 filesystem", color: colors.purple }]
+        children: [{ title: "ext4 filesystem", color: colors.purple }]
       }
     ]
   }}
@@ -865,17 +865,17 @@ The device mapper translates logical volume addresses to physical volume locatio
         label: "dir_1 → Inode 12",
         color: colors.green,
         children: [
-          { label: "file_1 → Inode 13", color: colors.purple },
-          { label: "file_2 → Inode 14", color: colors.purple },
-          { label: "file_3 → Inode 15", color: colors.purple }
+          { title: "file_1 → Inode 13", color: colors.purple },
+          { title: "file_2 → Inode 14", color: colors.purple },
+          { title: "file_3 → Inode 15", color: colors.purple }
         ]
       },
       {
         label: "dir_2 → Inode 7633",
         color: colors.orange,
         children: [
-          { label: "file_4 → Inode 7634", color: colors.purple },
-          { label: "file_5 → Inode 15 (hard link)", color: colors.cyan }
+          { title: "file_4 → Inode 7634", color: colors.purple },
+          { title: "file_5 → Inode 15 (hard link)", color: colors.cyan }
         ]
       }
     ]

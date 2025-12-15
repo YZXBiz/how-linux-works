@@ -1544,11 +1544,11 @@ Each device has both a block device file and a generic device file.
 <StackDiagram
   title="Dual Access Paths to Optical Drive"
   layers={[
-    { label: 'User Space', color: colors.blue, items: ['Process A (reading via sr)', 'Process B (writing via sg)'] },
-    { label: 'Driver Layer', color: colors.green, items: ['sr driver (block)', 'sg driver (generic)'] },
-    { label: 'SCSI Middle Layer', color: colors.orange, items: ['Common abstraction for all SCSI'] },
-    { label: 'Hardware Driver', color: colors.purple, items: ['Low-level hardware access'] },
-    { label: 'Optical Drive', color: colors.slate, items: ['Physical device'] }
+    { title: 'User Space', color: colors.blue, items: ['Process A (reading via sr)', 'Process B (writing via sg)'] },
+    { title: 'Driver Layer', color: colors.green, items: ['sr driver (block)', 'sg driver (generic)'] },
+    { title: 'SCSI Middle Layer', color: colors.orange, items: ['Common abstraction for all SCSI'] },
+    { title: 'Hardware Driver', color: colors.purple, items: ['Low-level hardware access'] },
+    { title: 'Optical Drive', color: colors.slate, items: ['Physical device'] }
   ]}
 />
 

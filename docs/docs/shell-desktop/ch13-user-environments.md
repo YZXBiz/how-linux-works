@@ -334,8 +334,8 @@ Some applications (especially mail programs) override umask to 077 for their fil
         label: 'Non-Interactive',
         color: colors.slate,
         children: [
-          { label: 'Scripts', color: colors.slate },
-          { label: 'Commands via -c', color: colors.slate }
+          { title: 'Scripts', color: colors.slate },
+          { title: 'Commands via -c', color: colors.slate }
         ]
       },
       {
@@ -346,18 +346,18 @@ Some applications (especially mail programs) override umask to 077 for their fil
             label: 'Login Shell',
             color: colors.blue,
             children: [
-              { label: 'SSH session', color: colors.cyan },
-              { label: 'Console login', color: colors.cyan },
-              { label: 'su - user', color: colors.cyan }
+              { title: 'SSH session', color: colors.cyan },
+              { title: 'Console login', color: colors.cyan },
+              { title: 'su - user', color: colors.cyan }
             ]
           },
           {
             label: 'Non-Login Shell',
             color: colors.purple,
             children: [
-              { label: 'Terminal window', color: colors.orange },
-              { label: 'Subshell', color: colors.orange },
-              { label: 'su user', color: colors.orange }
+              { title: 'Terminal window', color: colors.orange },
+              { title: 'Subshell', color: colors.orange },
+              { title: 'su user', color: colors.orange }
             ]
           }
         ]
@@ -790,38 +790,38 @@ Over time, your home directory accumulates many dot files (files starting with `
         label: 'Shell Config',
         color: colors.green,
         children: [
-          { label: '.bashrc', color: colors.green },
-          { label: '.bash_profile', color: colors.green },
-          { label: '.bash_history', color: colors.slate },
-          { label: '.profile', color: colors.green }
+          { title: '.bashrc', color: colors.green },
+          { title: '.bash_profile', color: colors.green },
+          { title: '.bash_history', color: colors.slate },
+          { title: '.profile', color: colors.green }
         ]
       },
       {
         label: 'Editor Config',
         color: colors.purple,
         children: [
-          { label: '.vimrc', color: colors.purple },
-          { label: '.emacs', color: colors.purple },
-          { label: '.nanorc', color: colors.purple }
+          { title: '.vimrc', color: colors.purple },
+          { title: '.emacs', color: colors.purple },
+          { title: '.nanorc', color: colors.purple }
         ]
       },
       {
         label: 'Application Data',
         color: colors.orange,
         children: [
-          { label: '.ssh/', color: colors.orange },
-          { label: '.config/', color: colors.orange },
-          { label: '.local/', color: colors.orange },
-          { label: '.cache/', color: colors.slate }
+          { title: '.ssh/', color: colors.orange },
+          { title: '.config/', color: colors.orange },
+          { title: '.local/', color: colors.orange },
+          { title: '.cache/', color: colors.slate }
         ]
       },
       {
         label: 'Desktop Config',
         color: colors.cyan,
         children: [
-          { label: '.xinitrc', color: colors.cyan },
-          { label: '.xsession', color: colors.cyan },
-          { label: '.Xresources', color: colors.cyan }
+          { title: '.xinitrc', color: colors.cyan },
+          { title: '.xsession', color: colors.cyan },
+          { title: '.Xresources', color: colors.cyan }
         ]
       }
     ]

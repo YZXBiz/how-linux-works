@@ -67,10 +67,10 @@ Virtual machines are based on the same concept as virtual memory, except with **
 <StackDiagram
   title="Virtual Machine Architecture"
   layers={[
-    { label: 'Guest OS 1 (Linux)', color: colors.blue, items: ['Complete operating system with kernel'] },
-    { label: 'Guest OS 2 (Windows)', color: colors.green, items: ['Another complete operating system'] },
-    { label: 'Hypervisor (VMM)', color: colors.purple, items: ['Manages virtual machines and resources'] },
-    { label: 'Physical Hardware', color: colors.orange, items: ['CPU, memory, storage, network'] }
+    { title: 'Guest OS 1 (Linux)', color: colors.blue, items: ['Complete operating system with kernel'] },
+    { title: 'Guest OS 2 (Windows)', color: colors.green, items: ['Another complete operating system'] },
+    { title: 'Hypervisor (VMM)', color: colors.purple, items: ['Manages virtual machines and resources'] },
+    { title: 'Physical Hardware', color: colors.orange, items: ['CPU, memory, storage, network'] }
   ]}
 />
 
@@ -639,9 +639,9 @@ alpine latest f70734b6a266 3 weeks ago 5.61MB
 <StackDiagram
   title="Docker Image Layers"
   layers={[
-    { label: 'hlw_test:latest', color: colors.purple, items: ['CMD ["/bin/bash"]', 'Final image'] },
-    { label: 'Intermediate Layer', color: colors.green, items: ['Bash shell and dependencies'] },
-    { label: 'alpine:latest', color: colors.blue, items: ['Base Alpine Linux distribution'] }
+    { title: 'hlw_test:latest', color: colors.purple, items: ['CMD ["/bin/bash"]', 'Final image'] },
+    { title: 'Intermediate Layer', color: colors.green, items: ['Bash shell and dependencies'] },
+    { title: 'alpine:latest', color: colors.blue, items: ['Base Alpine Linux distribution'] }
   ]}
 />
 
@@ -737,10 +737,10 @@ In the mount output, you'll see three directory parameters:
 <StackDiagram
   title="Overlay Filesystem Structure"
   layers={[
-    { label: 'Upper Directory (Read-Write)', color: colors.red, items: ['All container changes written here'] },
-    { label: 'Lower Directory 3', color: colors.purple, items: ['CMD layer'] },
-    { label: 'Lower Directory 2', color: colors.green, items: ['Bash installation layer'] },
-    { label: 'Lower Directory 1 (Read-Only)', color: colors.blue, items: ['Base Alpine distribution'] }
+    { title: 'Upper Directory (Read-Write)', color: colors.red, items: ['All container changes written here'] },
+    { title: 'Lower Directory 3', color: colors.purple, items: ['CMD layer'] },
+    { title: 'Lower Directory 2', color: colors.green, items: ['Bash installation layer'] },
+    { title: 'Lower Directory 1 (Read-Only)', color: colors.blue, items: ['Base Alpine distribution'] }
   ]}
 />
 
@@ -1212,9 +1212,9 @@ With the `VIRTUAL_ENV` environment variable set:
 <StackDiagram
   title="Python Virtual Environment Structure"
   layers={[
-    { label: 'Virtual Environment Packages', color: colors.purple, items: ['test-venv/lib', 'Isolated package installation'] },
-    { label: 'Python Interpreter (Symlink)', color: colors.green, items: ['test-venv/bin/python → system Python'] },
-    { label: 'System Python Installation', color: colors.blue, items: ['System-wide Python and packages'] }
+    { title: 'Virtual Environment Packages', color: colors.purple, items: ['test-venv/lib', 'Isolated package installation'] },
+    { title: 'Python Interpreter (Symlink)', color: colors.green, items: ['test-venv/bin/python → system Python'] },
+    { title: 'System Python Installation', color: colors.blue, items: ['System-wide Python and packages'] }
   ]}
 />
 

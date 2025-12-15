@@ -2053,36 +2053,36 @@ The `z` option automatically invokes gzip.
     label: '/',
     color: colors.blue,
     children: [
-      { label: '/bin - Essential command binaries', color: colors.green },
-      { label: '/boot - Kernel and boot loader files', color: colors.green },
-      { label: '/dev - Device files', color: colors.purple },
-      { label: '/etc - System configuration files', color: colors.orange },
-      { label: '/home - User home directories', color: colors.cyan },
-      { label: '/lib - Shared libraries', color: colors.green },
-      { label: '/proc - Process and kernel information', color: colors.purple },
-      { label: '/root - Root user home directory', color: colors.cyan },
-      { label: '/run - Runtime variable data', color: colors.slate },
-      { label: '/sbin - System binaries', color: colors.green },
-      { label: '/sys - Device and system interface', color: colors.purple },
-      { label: '/tmp - Temporary files', color: colors.slate },
+      { title: '/bin - Essential command binaries', color: colors.green },
+      { title: '/boot - Kernel and boot loader files', color: colors.green },
+      { title: '/dev - Device files', color: colors.purple },
+      { title: '/etc - System configuration files', color: colors.orange },
+      { title: '/home - User home directories', color: colors.cyan },
+      { title: '/lib - Shared libraries', color: colors.green },
+      { title: '/proc - Process and kernel information', color: colors.purple },
+      { title: '/root - Root user home directory', color: colors.cyan },
+      { title: '/run - Runtime variable data', color: colors.slate },
+      { title: '/sbin - System binaries', color: colors.green },
+      { title: '/sys - Device and system interface', color: colors.purple },
+      { title: '/tmp - Temporary files', color: colors.slate },
       {
         label: '/usr',
         color: colors.blue,
         children: [
-          { label: 'bin - User command binaries', color: colors.green },
-          { label: 'lib - User libraries', color: colors.green },
-          { label: 'local - Locally installed software', color: colors.orange },
-          { label: 'sbin - Non-essential system binaries', color: colors.green },
-          { label: 'share - Architecture-independent data', color: colors.slate }
+          { title: 'bin - User command binaries', color: colors.green },
+          { title: 'lib - User libraries', color: colors.green },
+          { title: 'local - Locally installed software', color: colors.orange },
+          { title: 'sbin - Non-essential system binaries', color: colors.green },
+          { title: 'share - Architecture-independent data', color: colors.slate }
         ]
       },
       {
         label: '/var',
         color: colors.blue,
         children: [
-          { label: 'log - Log files', color: colors.orange },
-          { label: 'tmp - Temporary files (persistent)', color: colors.slate },
-          { label: 'run - Runtime data (older systems)', color: colors.slate }
+          { title: 'log - Log files', color: colors.orange },
+          { title: 'tmp - Temporary files (persistent)', color: colors.slate },
+          { title: 'run - Runtime data (older systems)', color: colors.slate }
         ]
       }
     ]

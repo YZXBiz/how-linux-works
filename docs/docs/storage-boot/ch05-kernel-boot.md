@@ -48,12 +48,12 @@ systemd[1]: systemd 237 running in system mode
 <ProcessFlow
   title="Simplified Boot Process"
   steps={[
-    { label: "Firmware (BIOS/UEFI) loads boot loader", color: colors.blue },
-    { label: "Boot loader loads kernel into memory", color: colors.green },
-    { label: "Kernel initializes devices and drivers", color: colors.yellow },
-    { label: "Kernel mounts root filesystem", color: colors.orange },
-    { label: "Kernel starts init (PID 1)", color: colors.red },
-    { label: "init starts system services", color: colors.purple }
+    { title: "Firmware (BIOS/UEFI) loads boot loader", color: colors.blue },
+    { title: "Boot loader loads kernel into memory", color: colors.green },
+    { title: "Kernel initializes devices and drivers", color: colors.yellow },
+    { title: "Kernel mounts root filesystem", color: colors.orange },
+    { title: "Kernel starts init (PID 1)", color: colors.red },
+    { title: "init starts system services", color: colors.purple }
   ]}
 />
 
@@ -70,13 +70,13 @@ systemd[1]: systemd 237 running in system mode
 <StackDiagram
   title="Kernel Boot Stages"
   layers={[
-    { label: "User Space Start (init)", color: colors.blue },
-    { label: "Root Filesystem Mount", color: colors.green },
-    { label: "Auxiliary Subsystems (networking)", color: colors.yellow },
-    { label: "Device Discovery", color: colors.orange },
-    { label: "Device Bus Discovery", color: colors.red },
-    { label: "Memory Inspection", color: colors.purple },
-    { label: "CPU Inspection", color: colors.pink }
+    { title: "User Space Start (init)", color: colors.blue },
+    { title: "Root Filesystem Mount", color: colors.green },
+    { title: "Auxiliary Subsystems (networking)", color: colors.yellow },
+    { title: "Device Discovery", color: colors.orange },
+    { title: "Device Bus Discovery", color: colors.red },
+    { title: "Memory Inspection", color: colors.purple },
+    { title: "CPU Inspection", color: colors.pink }
   ]}
 />
 
@@ -255,11 +255,11 @@ This book focuses on GRUB 2, the most widely deployed boot loader.
 <ProcessFlow
   title="GRUB Boot Flow"
   steps={[
-    { label: "Firmware loads GRUB core", color: colors.blue },
-    { label: "GRUB displays menu (or timeout)", color: colors.green },
-    { label: "User selects boot entry", color: colors.yellow },
-    { label: "GRUB loads kernel and initramfs", color: colors.orange },
-    { label: "GRUB executes kernel", color: colors.red }
+    { title: "Firmware loads GRUB core", color: colors.blue },
+    { title: "GRUB displays menu (or timeout)", color: colors.green },
+    { title: "User selects boot entry", color: colors.yellow },
+    { title: "GRUB loads kernel and initramfs", color: colors.orange },
+    { title: "GRUB executes kernel", color: colors.red }
   ]}
 />
 
@@ -292,9 +292,9 @@ GRUB uses "root" in two completely different ways:
 <StackDiagram
   title="GRUB Configuration Layers"
   layers={[
-    { label: "Kernel Parameters (root=UUID=...)", color: colors.blue },
-    { label: "Kernel Image (linux /boot/vmlinuz)", color: colors.green },
-    { label: "Initramfs (initrd /boot/initrd.img)", color: colors.yellow },
+    { title: "Kernel Parameters (root=UUID=...)", color: colors.blue },
+    { title: "Kernel Image (linux /boot/vmlinuz)", color: colors.green },
+    { title: "Initramfs (initrd /boot/initrd.img)", color: colors.yellow },
     { title: "GRUB Modules (insmod ext2, insmod gzio)", color: colors.orange },
     { title: "GRUB Root (set root='hd0,msdos1')", color: colors.red }
   ]}
@@ -388,11 +388,11 @@ grub> set
 <ProcessFlow
   title="GRUB Configuration Generation"
   steps={[
-    { label: "Edit /etc/default/grub", color: colors.blue },
-    { label: "Optionally modify /etc/grub.d/ scripts", color: colors.green },
-    { label: "Run grub-mkconfig", color: colors.yellow },
-    { label: "Generate /boot/grub/grub.cfg", color: colors.orange },
-    { label: "Reboot to test", color: colors.red }
+    { title: "Edit /etc/default/grub", color: colors.blue },
+    { title: "Optionally modify /etc/grub.d/ scripts", color: colors.green },
+    { title: "Run grub-mkconfig", color: colors.yellow },
+    { title: "Generate /boot/grub/grub.cfg", color: colors.orange },
+    { title: "Reboot to test", color: colors.red }
   ]}
 />
 
@@ -450,11 +450,11 @@ grub-install --efi-directory=/boot/efi --bootloader-id=ubuntu
 <StackDiagram
   title="GRUB Installation Locations"
   layers={[
-    { label: "UEFI: ESP at /boot/efi/EFI/", color: colors.blue },
-    { label: "or MBR: First 440 bytes of disk", color: colors.green },
-    { label: "GRUB Core: After MBR or in ESP", color: colors.yellow },
-    { label: "GRUB Modules: /boot/grub/", color: colors.orange },
-    { label: "Physical Disk", color: colors.red }
+    { title: "UEFI: ESP at /boot/efi/EFI/", color: colors.blue },
+    { title: "or MBR: First 440 bytes of disk", color: colors.green },
+    { title: "GRUB Core: After MBR or in ESP", color: colors.yellow },
+    { title: "GRUB Modules: /boot/grub/", color: colors.orange },
+    { title: "Physical Disk", color: colors.red }
   ]}
 />
 
@@ -521,11 +521,11 @@ The `+1` means "load whatever boot code is at the first sector of the partition.
 <StackDiagram
   title="MBR Boot Process"
   layers={[
-    { label: "BIOS loads first 440 bytes (MBR boot code)", color: colors.blue },
-    { label: "MBR code loads GRUB core (between MBR and first partition)", color: colors.green },
-    { label: "GRUB core loads modules from /boot/grub", color: colors.yellow },
-    { label: "GRUB loads kernel and initramfs", color: colors.orange },
-    { label: "GRUB executes kernel", color: colors.red }
+    { title: "BIOS loads first 440 bytes (MBR boot code)", color: colors.blue },
+    { title: "MBR code loads GRUB core (between MBR and first partition)", color: colors.green },
+    { title: "GRUB core loads modules from /boot/grub", color: colors.yellow },
+    { title: "GRUB loads kernel and initramfs", color: colors.orange },
+    { title: "GRUB executes kernel", color: colors.red }
   ]}
 />
 
@@ -552,11 +552,11 @@ The `+1` means "load whatever boot code is at the first sector of the partition.
 <ProcessFlow
   title="UEFI Boot Process"
   steps={[
-    { label: "UEFI firmware initializes", color: colors.blue },
-    { label: "Firmware reads ESP partition", color: colors.green },
-    { label: "Firmware navigates to /EFI/ubuntu/grubx64.efi", color: colors.yellow },
-    { label: "Firmware executes GRUB", color: colors.orange },
-    { label: "GRUB loads kernel", color: colors.red }
+    { title: "UEFI firmware initializes", color: colors.blue },
+    { title: "Firmware reads ESP partition", color: colors.green },
+    { title: "Firmware navigates to /EFI/ubuntu/grubx64.efi", color: colors.yellow },
+    { title: "Firmware executes GRUB", color: colors.orange },
+    { title: "GRUB loads kernel", color: colors.red }
   ]}
 />
 
@@ -585,14 +585,14 @@ The `+1` means "load whatever boot code is at the first sector of the partition.
 <ProcessFlow
   title="Complete GRUB Boot Sequence"
   steps={[
-    { label: "1. BIOS/UEFI loads GRUB boot code", color: colors.blue },
-    { label: "2. GRUB core initializes", color: colors.green },
-    { label: "3. GRUB gains disk and filesystem access", color: colors.yellow },
-    { label: "4. GRUB loads configuration from boot partition", color: colors.orange },
-    { label: "5. GRUB displays menu (or uses timeout)", color: colors.red },
-    { label: "6. GRUB loads additional modules as needed", color: colors.purple },
-    { label: "7. GRUB executes linux command (loads kernel)", color: colors.pink },
-    { label: "8. Kernel takes control", color: colors.blue }
+    { title: "1. BIOS/UEFI loads GRUB boot code", color: colors.blue },
+    { title: "2. GRUB core initializes", color: colors.green },
+    { title: "3. GRUB gains disk and filesystem access", color: colors.yellow },
+    { title: "4. GRUB loads configuration from boot partition", color: colors.orange },
+    { title: "5. GRUB displays menu (or uses timeout)", color: colors.red },
+    { title: "6. GRUB loads additional modules as needed", color: colors.purple },
+    { title: "7. GRUB executes linux command (loads kernel)", color: colors.pink },
+    { title: "8. Kernel takes control", color: colors.blue }
   ]}
 />
 
