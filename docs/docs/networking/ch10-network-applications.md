@@ -19,30 +19,10 @@ import { ProcessFlow, StackDiagram, CardGrid, TreeDiagram, ConnectionDiagram, co
 <StackDiagram
   title="Application Layer in the Stack"
   layers={[
-    {
-      name: 'Applications (HTTP, SSH, Email)',
-      description: 'What users interact with',
-      color: colors.blue,
-      detail: 'User space - this chapter'
-    },
-    {
-      name: 'Transport (TCP/UDP)',
-      description: 'Reliable delivery, ports',
-      color: colors.green,
-      detail: 'Kernel - handles connections'
-    },
-    {
-      name: 'Network (IP)',
-      description: 'Addressing, routing',
-      color: colors.orange,
-      detail: 'Kernel - moves packets'
-    },
-    {
-      name: 'Physical (Ethernet)',
-      description: 'Actual transmission',
-      color: colors.purple,
-      detail: 'Hardware + kernel drivers'
-    }
+    { label: 'Applications (HTTP, SSH, Email)', color: colors.blue, items: ['User space', 'What users interact with'] },
+    { label: 'Transport (TCP/UDP)', color: colors.green, items: ['Kernel', 'Reliable delivery, ports'] },
+    { label: 'Network (IP)', color: colors.orange, items: ['Kernel', 'Addressing, routing'] },
+    { label: 'Physical (Ethernet)', color: colors.purple, items: ['Hardware + drivers'] }
   ]}
 />
 

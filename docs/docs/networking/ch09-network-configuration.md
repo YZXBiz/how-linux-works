@@ -23,30 +23,10 @@ Networking connects computers and sends data between them. To understand how thi
 <StackDiagram
   title="The Network Stack"
   layers={[
-    {
-      name: 'Application Layer',
-      description: 'HTTP, FTP, SSH - what applications speak',
-      color: colors.blue,
-      detail: 'User space protocols'
-    },
-    {
-      name: 'Transport Layer',
-      description: 'TCP, UDP - how data moves reliably',
-      color: colors.green,
-      detail: 'Ports and connections'
-    },
-    {
-      name: 'Network Layer',
-      description: 'IP - addressing and routing',
-      color: colors.orange,
-      detail: 'IP addresses and subnets'
-    },
-    {
-      name: 'Physical Layer',
-      description: 'Ethernet - actual transmission',
-      color: colors.purple,
-      detail: 'MAC addresses and frames'
-    }
+    { label: 'Application Layer', color: colors.blue, items: ['HTTP, FTP, SSH', 'User space protocols'] },
+    { label: 'Transport Layer', color: colors.green, items: ['TCP, UDP', 'Ports and connections'] },
+    { label: 'Network Layer', color: colors.orange, items: ['IP addressing', 'Routing'] },
+    { label: 'Physical Layer', color: colors.purple, items: ['Ethernet', 'MAC addresses'] }
   ]}
 />
 

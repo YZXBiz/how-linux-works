@@ -278,36 +278,11 @@ Static libraries are wasteful in several ways:
 <StackDiagram
   title="Static vs. Shared Libraries in Memory"
   layers={[
-    {
-      label: 'Program A (with static lib)',
-      detail: 'Contains copy of library code',
-      color: colors.blue,
-      height: 80
-    },
-    {
-      label: 'Program B (with static lib)',
-      detail: 'Contains another copy of library code',
-      color: colors.blue,
-      height: 80
-    },
-    {
-      label: 'Program C (shared lib)',
-      detail: 'References shared library',
-      color: colors.green,
-      height: 40
-    },
-    {
-      label: 'Program D (shared lib)',
-      detail: 'References same shared library',
-      color: colors.green,
-      height: 40
-    },
-    {
-      label: 'Shared Library Code',
-      detail: 'One copy in memory for all',
-      color: colors.purple,
-      height: 60
-    }
+    { label: 'Program A (static lib)', color: colors.blue, items: ['Contains copy of library code'] },
+    { label: 'Program B (static lib)', color: colors.blue, items: ['Contains another copy'] },
+    { label: 'Program C (shared lib)', color: colors.green, items: ['References shared library'] },
+    { label: 'Program D (shared lib)', color: colors.green, items: ['References same shared library'] },
+    { label: 'Shared Library Code', color: colors.purple, items: ['One copy in memory for all'] }
   ]}
 />
 

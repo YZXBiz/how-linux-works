@@ -75,11 +75,11 @@ At the foundation of any graphical display is the **framebuffer**.
 <StackDiagram
   title="Graphics Display Stack"
   layers={[
-    { label: 'Screen Display', color: colors.blue, details: 'Physical pixels you see' },
-    { label: 'Graphics Hardware', color: colors.green, details: 'Reads framebuffer, outputs to screen' },
-    { label: 'Framebuffer', color: colors.purple, details: 'Memory buffer representing pixels' },
-    { label: 'Window Manager/Compositor', color: colors.orange, details: 'Decides what to write to framebuffer' },
-    { label: 'Applications', color: colors.blue, details: 'Generate content for windows' }
+    { label: 'Screen Display', color: colors.blue, items: ['Physical pixels you see'] },
+    { label: 'Graphics Hardware', color: colors.green, items: ['Reads framebuffer, outputs to screen'] },
+    { label: 'Framebuffer', color: colors.purple, items: ['Memory buffer representing pixels'] },
+    { label: 'Window Manager/Compositor', color: colors.orange, items: ['Decides what to write to framebuffer'] },
+    { label: 'Applications', color: colors.cyan, items: ['Generate content for windows'] }
   ]}
 />
 
@@ -844,11 +844,11 @@ Printing on Linux is a multi-stage process.
 <StackDiagram
   title="CUPS Architecture"
   layers={[
-    { label: 'Applications', color: colors.blue, details: 'Generate print jobs' },
-    { label: 'CUPS Client (lpr)', color: colors.green, details: 'Submit to server' },
-    { label: 'CUPS Daemon (cupsd)', color: colors.purple, details: 'Queue management' },
-    { label: 'Filters/Drivers', color: colors.orange, details: 'Format conversion' },
-    { label: 'Backend', color: colors.red, details: 'Send to printer' }
+    { label: 'Applications', color: colors.blue, items: ['Generate print jobs'] },
+    { label: 'CUPS Client (lpr)', color: colors.green, items: ['Submit to server'] },
+    { label: 'CUPS Daemon (cupsd)', color: colors.purple, items: ['Queue management'] },
+    { label: 'Filters/Drivers', color: colors.orange, items: ['Format conversion'] },
+    { label: 'Backend', color: colors.red, items: ['Send to printer'] }
   ]}
 />
 
